@@ -1,0 +1,32 @@
+{
+  "vendingData": {
+    "productPrices": {
+      "FigBars": 2.5,
+      "Fanta": 10,
+      "Nuts": 7.5,
+      "Coke": 5,
+      "BottledWater": 3.7
+    },
+    "denominations": {
+      "dime": 0.1,
+      "quarter": 0.25,
+      "loonie": 1.0,
+      "toonie": 2.0,
+      "fiveDollars": 5.0
+    },
+    "inventory": {
+      "FigBars": 0,
+      "Fanta": 0,
+      "Nuts": 0,
+      "Coke": 0,
+      "BottledWater": 0
+    },
+    "machineChange": {
+      "dime": 10,
+      "quarter": 10,
+      "loonie": 10,
+      "toonie": 10,
+      "fiveDollars": 10
+    }
+  }
+}

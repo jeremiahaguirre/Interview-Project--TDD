@@ -1,0 +1,14 @@
+Purpose is to design a Vending Machine which follows following requirements:
+
+- Accepts coins of dime, quarter, loonie, toonie, five dollars 
+- Allow user to select products in dollars e.g. FigBars ($2.50), Fanta($10), Nuts ($7.50), Coke ($5), Bottled Water ($3.70)
+- Allow user to take refund by cancelling the request.
+- Return selected product and remaining change if any
+- Dispense inventory based on payment
+- Allow reset operation for vending machine supplier
+- Print vending machine inventory
+- Refill vending machine inventory
+- Re-supply vending machine change
+
+
+
