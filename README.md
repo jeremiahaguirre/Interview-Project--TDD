@@ -14,7 +14,7 @@ This project displays my abilities to run TDD. It shows ten different tests that
 
 ## Installation
 
-Install the yarn like:
+Install yarn:
 
 ```bash
 yarn install
