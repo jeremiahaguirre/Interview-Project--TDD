@@ -7,9 +7,28 @@ function sum(obj) {
   }
   return sum;
 }
+
 class VendingMachine {
   constructor(data) {
     this.data = data;
+  }
+
+  wrongBill() {
+    const tenDollers = 10.0;
+    const quarterValue = this.data.vendingData.denominations.quarter;
+    const loonieValue = this.data.vendingData.denominations.loonie;
+    const toonieValue = this.data.vendingData.denominations.toonie;
+    const dimeValue = this.data.vendingData.denominations.dime;
+    const fiveDollarsValue = this.data.vendingData.denominations.fiveDollars;
+
+    if (
+      tenDollers > quarterValue &&
+      tenDollers > loonieValue &&
+      tenDollers > toonieValue &&
+      tenDollers > dimeValue &&
+      tenDollers > fiveDollarsValue
+    )
+      throw "This bill is not accepted";
   }
 
   userBuysFigbars() {
@@ -23,6 +42,19 @@ class VendingMachine {
     let userInput = userInputOfLoonies + userInputOfQuarters;
 
     return userInput - figBarPrice;
+  }
+
+  userBuysFanta() {
+    //When user doesn't provide enough change
+    let numOfToonies = 3;
+    let numOfDimes = 3;
+    const toonieValue = this.data.vendingData.denominations.toonie;
+    const dimeValue = this.data.vendingData.denominations.dime;
+    const fantaPrice = this.data.vendingData.productPrices.Fanta;
+    let userInputOfToonies = numOfToonies * toonieValue;
+    let userInputOfDimes = numOfDimes * dimeValue;
+    let userMoney = userInputOfDimes + userInputOfToonies;
+    if (userMoney < fantaPrice) throw "Insufficient change";
   }
 
   refillChange() {

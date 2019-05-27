@@ -5,7 +5,6 @@ Purpose is to design a Vending Machine which follows following requirements:
 - Allow user to take refund by cancelling the request.
 - Return selected product and remaining change if any
 - Dispense inventory based on payment
-- Allow reset operation for vending machine supplier
 - Print vending machine inventory
 - Refill vending machine inventory
 - Re-supply vending machine change

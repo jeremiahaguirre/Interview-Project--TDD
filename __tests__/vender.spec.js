@@ -28,17 +28,33 @@ describe("VendingMachine", () => {
     });
   });
 
-  describe("userBuysFigbars()", () => {
+  describe("userBuysItem()", () => {
     describe("when user puts in 5 loonies and 4 quarters for figbars", () => {
       it("should return the change", () => {
         expect(test.result.userBuysFigbars()).toEqual(3.5);
+      });
+    });
+
+    describe("when item price is more than the amount of change given", () => {
+      it("should throw an error", () => {
+        expect(() => test.result.userBuysFanta()).toThrow(
+          "Insufficient change"
+        );
+      });
+    });
+
+    describe("when the bill is not the type of changed accepted", () => {
+      it("should throw an error", () => {
+        expect(() => test.result.wrongBill()).toThrow(
+          "This bill is not accepted"
+        );
       });
     });
   });
 
   describe("coinsAdded()", () => {
     describe("when user puts in 5 loonies and 4 quarters", () => {
-      it("should update the number of each denomination of the machineChange", () => {
+      it("should update the number of those denominations in vending machine", () => {
         expect(test.result.refillChange()).toEqual(15);
       });
     });
