@@ -28,7 +28,12 @@ class VendingMachine {
       tenDollers > dimeValue &&
       tenDollers > fiveDollarsValue
     )
-      throw "This bill is not accepted";
+      throw "This type payment is not accepted";
+  }
+
+  noProduct() {
+    const figBarAmount = this.data.vendingData.inventory.Fanta;
+    if (figBarAmount === undefined) throw Error("This item is out of stock");
   }
 
   userBuysFigbars() {
@@ -54,7 +59,29 @@ class VendingMachine {
     let userInputOfToonies = numOfToonies * toonieValue;
     let userInputOfDimes = numOfDimes * dimeValue;
     let userMoney = userInputOfDimes + userInputOfToonies;
-    if (userMoney < fantaPrice) throw "Insufficient change";
+    if (userMoney < fantaPrice) throw Error("Insufficient change");
+  }
+
+  noChange() {
+    const changAmount = Object.keys(this.data.vendingData.machineChange).map(
+      key => this.data.vendingData.machineChange[key]
+    );
+    const isNone = !changAmount.some(el => el !== 0);
+
+    if (isNone === true) {
+      throw Error("Please use exact change");
+    }
+  }
+
+  thereIsChange() {
+    const changAmount = Object.keys(this.data.vendingData.machineChange).map(
+      key => this.data.vendingData.machineChange[key]
+    );
+    const isNone = !changAmount.some(el => el !== 0);
+
+    if (isNone === false) {
+      return sum(changAmount);
+    }
   }
 
   refillChange() {
@@ -70,7 +97,7 @@ class VendingMachine {
       return this.data.vendingData.inventory[key];
     });
     const isAllZero = !val.some(el => el !== 0);
-    if (isAllZero === true) throw "Inventory is empty";
+    if (isAllZero === true) throw Error("Inventory is empty");
     return this.data.vendingData.inventory;
   }
   updateInventory() {
@@ -88,7 +115,7 @@ class VendingMachine {
     const added = quarter + dime + loonie + toonie + fiveDollars;
     const total = sum(this.data.vendingData.machineChange);
 
-    if (!total) throw "There is no change";
+    if (!total) throw Error("There is no change");
 
     return added;
   }
